@@ -11,7 +11,7 @@ export default function MainLayout({
     <>
       <ThemeProvider attribute={"class"} defaultTheme={"dark"} enableSystem>
         <Header />
-        {children}
+        <div className="mt-20">{children}</div>
       </ThemeProvider>
     </>
   );

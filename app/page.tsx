@@ -8,7 +8,6 @@ export default async function Home() {
   return session ? (
     <main className="min-h-screen flex items-center justify-center">
       <Header />
-      <h1>{session.user?.email}</h1>
     </main>
   ) : (
     <main className="min-h-screen bg-gray-900 text-white">
