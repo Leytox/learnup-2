@@ -41,7 +41,7 @@ export default async function Header() {
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/courses"}>
+                  <Link href={"/learning"}>
                     <Button size={"icon"} title={"My Courses"}>
                       <GraduationCapIcon />
                     </Button>
