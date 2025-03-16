@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 
 export default function MainLayout({
   children,
@@ -12,6 +13,7 @@ export default function MainLayout({
       <ThemeProvider attribute={"class"} defaultTheme={"dark"} enableSystem>
         <Header />
         <div className="mt-20">{children}</div>
+        <Toaster />
       </ThemeProvider>
     </>
   );

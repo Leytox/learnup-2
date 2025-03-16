@@ -1,11 +1,9 @@
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import React from "react";
 import GithubAuth from "@/components/githubAuth";
 import GoogleAuth from "@/components/googleAuth";
 import Link from "next/link";
+import { CredentialsAuth } from "./credentialsAuth";
 
 export function LoginForm({
   className,
@@ -16,24 +14,16 @@ export function LoginForm({
       <div>
         <div className="flex flex-col gap-6">
           <div className="flex flex-col items-center gap-2">
-            <h1 className="text-2xl font-bold">Welcome to LearnUp</h1>
+            <h1 className="text-2xl font-bold">Welcome back</h1>
             <p>Select one of the auth methods</p>
           </div>
-          <div className="flex flex-col gap-6">
-            <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="email@example.com"
-                required
-              />
-            </div>
-            <Button type="button" className="w-full">
-              {/*#TODO Change to "submit" Login*/}
-              Login
-            </Button>
-          </div>
+          <CredentialsAuth />
+          <p className="text-center text-sm text-muted-foreground">
+            Don&apos;t have an account?{" "}
+            <Link href="/registration" className="underline">
+              Register
+            </Link>
+          </p>
           <div className="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border">
             <span className="relative z-10 bg-background px-2 text-muted-foreground">
               Or

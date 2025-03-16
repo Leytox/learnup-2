@@ -1,5 +1,6 @@
 "use server";
 import { signIn, signOut } from "@/auth";
+import { createUser } from "@/lib/user";
 
 export async function signInGoogle() {
   return await signIn("google", {
@@ -15,6 +16,28 @@ export async function signInGithub() {
     callbackUrl: "/",
     redirect: true,
   });
+}
+
+export async function signInCredentials(email: string, password: string) {
+  try {
+    await signIn("credentials", {
+      email,
+      password,
+      redirectTo: "/",
+    });
+    return { success: true };
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function signUp(email: string, name: string, password: string) {
+  try {
+    await createUser(email, name, password);
+    return { success: true };
+  } catch (error) {
+    throw error;
+  }
 }
 
 export async function signOutAll() {
