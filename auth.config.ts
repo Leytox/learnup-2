@@ -5,4 +5,9 @@ import Google from "next-auth/providers/google";
 
 export default {
   providers: [GitHub, Google, Facebook],
+  pages: {
+    signIn: "/login",
+    signOut: "/logout",
+    error: "/error",
+  },
 } satisfies NextAuthConfig;

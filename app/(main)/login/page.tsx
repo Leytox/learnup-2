@@ -1,10 +1,6 @@
 import { LoginForm } from "@/components/login-form";
-import { auth } from "@/auth";
-import { redirect } from "next/navigation";
 
-export default async function Login() {
-  const session = await auth();
-  if (session) redirect("/");
+export default function Login() {
   return (
     <div className="min-h-svh flex items-center justify-center w-full p-6 md:p-10">
       <div className="w-full max-w-sm">

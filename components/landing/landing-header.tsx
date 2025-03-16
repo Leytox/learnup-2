@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import Logo from "@/components/logo";
 import JoinButton from "./join-button";
+import Logo from "@/components/logo";
 
 export default async function LandingHeader() {
   return (
