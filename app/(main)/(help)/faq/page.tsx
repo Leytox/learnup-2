@@ -21,7 +21,7 @@ const faqs = [
 
 export default function FAQPage() {
   return (
-    <main className="min-h-screen py-20">
+    <main className="min-h-screen flex justify-center">
       <div className="container">
         <h1 className="text-4xl font-bold mb-8 text-center">
           Frequently Asked Questions

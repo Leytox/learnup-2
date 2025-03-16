@@ -15,9 +15,9 @@ const blogPosts = [
 
 export default function BlogPage() {
   return (
-    <main className="min-h-screen py-20">
+    <main className="min-h-screen flex justify-center">
       <div className="container">
-        <h1 className="text-4xl font-bold mb-8">Blog</h1>
+        <h1 className="text-4xl font-bold mb-8 text-center">Blog</h1>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {blogPosts.map((post, index) => (
             <Card key={index}>
