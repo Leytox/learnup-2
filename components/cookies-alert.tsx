@@ -1,21 +1,22 @@
 "use client";
-
 import { useEffect, useState } from "react";
+import { useLocalStorage } from "usehooks-ts";
 import { Button } from "./ui/button";
 
-export default function CookiesAlert() {
-  const [cookies, setCookies] = useState(false);
+export default function CookieConsent() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isAccepted, setIsAccepted] = useLocalStorage("isAccepted", false);
 
   useEffect(() => {
-    if (localStorage.getItem("cookies")) setCookies(true);
-  }, []);
+    if (!isAccepted) setIsVisible(true);
+    else setIsVisible(false);
+  }, [isAccepted, isVisible, setIsVisible]);
 
-  function setCookiePolicy() {
-    localStorage.setItem("cookies", "true");
-    setCookies(true);
-  }
+  const handleAccept = () => {
+    setIsAccepted(true);
+  };
 
-  if (cookies) return null;
+  if (!isVisible) return null;
 
   return (
     <div className={"fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4"}>
@@ -29,7 +30,7 @@ export default function CookiesAlert() {
           website.
         </p>
         <Button
-          onClick={setCookiePolicy}
+          onClick={handleAccept}
           className={"bg-white text-black px-4 py-2 rounded-md"}
         >
           Got it!
