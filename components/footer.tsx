@@ -1,14 +1,13 @@
 import React from "react";
 import Logo from "@/components/logo";
-import { FacebookIcon, GithubIcon, TwitterIcon } from "lucide-react";
+import { SiFacebook, SiX, SiGithub } from "@icons-pack/react-simple-icons";
 import Link from "next/link";
 
-// TODO: Fix mobile layout
 function Footer() {
   return (
     <footer
       className={
-        "h-fit w-full flex flex-col items-center justify-center bg-gray-800 text-white"
+        "h-fit w-full flex flex-col items-center justify-center bg-gray-900 text-white"
       }
     >
       <div
@@ -23,29 +22,35 @@ function Footer() {
         >
           <Logo />
           <div className={"flex gap-4"}>
-            <div
+            <a
+              href="https://x.com"
+              target="_blank"
               className={
                 "size-10 rounded-full bg-black flex justify-center items-center duration-200 hover:bg-gray-900"
               }
             >
-              <TwitterIcon />
-            </div>
+              <SiX />
+            </a>
 
-            <div
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
               className={
                 "size-10 rounded-full bg-black flex justify-center items-center duration-200 hover:bg-gray-900"
               }
             >
-              <FacebookIcon />
-            </div>
+              <SiFacebook />
+            </a>
 
-            <div
+            <a
+              href="https://github.com/Leytox/learnup-2"
+              target="_blank"
               className={
                 "size-10 rounded-full bg-black flex justify-center items-center duration-200 hover:bg-gray-900"
               }
             >
-              <GithubIcon />
-            </div>
+              <SiGithub />
+            </a>
           </div>
         </div>
         <div className={"flex w-full justify-evenly"}>
