@@ -1,8 +1,6 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
 import { ChevronsDownIcon } from "lucide-react";
 import Stars from "./stars";
-import Link from "next/link";
 import JoinButton from "./join-button";
 
 export default function Cta() {

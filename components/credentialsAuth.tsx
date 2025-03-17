@@ -39,7 +39,9 @@ export function CredentialsAuth() {
     try {
       await signInCredentials(values.email, values.password);
     } catch (error) {
-      toast.error(error.message);
+      const errorMessage =
+        error instanceof Error ? error.message : "An unexpected error occurred";
+      toast.error(errorMessage);
       console.error(error);
     }
   }
