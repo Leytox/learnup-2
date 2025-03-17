@@ -9,7 +9,6 @@ const PROTECTED_ROUTES = [
   "/learning",
   "/pay",
   "/settings",
-  "/course",
   "/lesson",
   "/certificates",
 ];
