@@ -137,7 +137,7 @@ export function RegistrationForm({
                 )}
               />
               <p className="text-center text-sm text-muted-foreground">
-                Don&apos;t have an account?{" "}
+                Already have an account?{" "}
                 <Link href="/login" className="underline">
                   Login
                 </Link>
