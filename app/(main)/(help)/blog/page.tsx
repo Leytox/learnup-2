@@ -1,10 +1,10 @@
+import { getBlogs } from "@/actions/blogs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { prisma } from "@/lib/prisma";
 import { Calendar } from "lucide-react";
 import Link from "next/link";
 
 export default async function BlogPage() {
-  const blogPosts = await prisma.blog.findMany();
+  const blogPosts = await getBlogs();
   return (
     <main className="min-h-screen flex justify-center">
       <div className="container">

@@ -1,6 +1,6 @@
-import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import { Calendar } from "lucide-react";
+import { getBlog } from "@/actions/blogs";
 
 export default async function BlogDetailPage({
   params,
@@ -9,9 +9,7 @@ export default async function BlogDetailPage({
 }) {
   const { slug } = await params;
 
-  const blogPost = await prisma.blog.findFirst({
-    where: { slug: slug },
-  });
+  const blogPost = await getBlog(slug);
 
   if (!blogPost) notFound();
 
