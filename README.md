@@ -1,4 +1,5 @@
 # LearnUp - Comprehensive Learning Platform
+![localhost_3000_ (1)](https://github.com/user-attachments/assets/89401d37-7dab-4726-b233-8df301ede347)
 
 LearnUp is a modern learning platform designed to help students access educational content, enroll in courses, and track their learning progress. Built with Next.js, TypeScript, Tailwind CSS, and Prisma, it offers a responsive and intuitive user experience.
 
