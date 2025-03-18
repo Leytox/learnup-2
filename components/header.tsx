@@ -35,21 +35,25 @@ export default async function Header() {
               <>
                 <li>
                   <Link href={"/profile"}>
-                    <Button size={"icon"} title={"Profile"}>
+                    <Button size={"icon"} variant={"ghost"} title={"Profile"}>
                       <User2Icon />
                     </Button>
                   </Link>
                 </li>
                 <li>
                   <Link href={"/learning"}>
-                    <Button size={"icon"} title={"My Courses"}>
+                    <Button
+                      size={"icon"}
+                      variant={"ghost"}
+                      title={"My Courses"}
+                    >
                       <GraduationCapIcon />
                     </Button>
                   </Link>
                 </li>
                 <li>
                   <Link href={"/cart"}>
-                    <Button size={"icon"} title={"Cart"}>
+                    <Button size={"icon"} variant={"ghost"} title={"Cart"}>
                       <ShoppingCartIcon />
                     </Button>
                   </Link>
