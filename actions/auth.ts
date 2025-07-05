@@ -23,6 +23,7 @@ export async function signInCredentials(email: string, password: string) {
     const result = await signIn("credentials", {
       email,
       password,
+      redirectTo: "/dashboard",
       redirect: false,
     });
 
@@ -53,9 +54,11 @@ export async function signInCredentials(email: string, password: string) {
       }
     }
 
-    return { success: true };
+    return { success: true, url: result?.url };
   } catch (error) {
-    throw error;
+    console.error("Sign-in error:", error);
+    if (error instanceof Error) throw error;
+    throw new Error("Authentication failed");
   }
 }
 

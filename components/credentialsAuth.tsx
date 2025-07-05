@@ -43,7 +43,8 @@ export function CredentialsAuth() {
 
       if (result?.success) {
         toast.success("Successfully signed in!");
-        router.push("/dashboard");
+        router.refresh();
+        window.location.href = "/dashboard";
       }
     } catch (error) {
       const errorMessage =

@@ -9,12 +9,10 @@ export default function MainLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <ThemeProvider attribute={"class"} defaultTheme={"dark"} enableSystem>
-        <Header />
-        <div className="mt-20 min-h-screen">{children}</div>
-        <Toaster />
-      </ThemeProvider>
-    </>
+    <ThemeProvider attribute={"class"} defaultTheme={"dark"} enableSystem>
+      <Header />
+      <div className="mt-20 min-h-screen">{children}</div>
+      <Toaster />
+    </ThemeProvider>
   );
 }

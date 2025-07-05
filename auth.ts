@@ -1,4 +1,4 @@
-import NextAuth, { CredentialsSignin } from "next-auth";
+import NextAuth from "next-auth";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
 import authConfig from "./auth.config";
@@ -18,7 +18,6 @@ export const {
   unstable_update: update,
 } = NextAuth({
   adapter: PrismaAdapter(prisma),
-  session: { strategy: "jwt" },
   ...authConfig,
   providers: [
     GitHub,
@@ -39,20 +38,22 @@ export const {
           throw new Error("Incorrect data format");
 
         const { email, password } = parsedCredentials.data;
-        const user = await getUserByEmail(email);
 
+        const user = await getUserByEmail(email);
         if (!user) throw new Error("User was not found");
         if (!user.password) throw new Error("User has no password");
-        const passwordsMatch = await bcrypt.compare(password, user.password);
 
+        const passwordsMatch = await bcrypt.compare(password, user.password);
         if (!passwordsMatch) throw new Error("Invalid credentials");
 
-        return {
+        const authUser = {
           id: user.id,
           email: user.email,
           name: user.name,
           role: user.role,
         };
+
+        return authUser;
       },
     }),
   ],

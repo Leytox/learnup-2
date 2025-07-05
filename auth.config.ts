@@ -2,11 +2,16 @@ import { NextAuthConfig } from "next-auth";
 import { Role } from "./generated/prisma";
 export default {
   providers: [],
+  session: {
+    strategy: "jwt",
+    maxAge: 30 * 24 * 60 * 60,
+  },
   pages: {
     signIn: "/login",
     signOut: "/logout",
     error: "/error",
   },
+  debug: process.env.NODE_ENV === "development",
   callbacks: {
     jwt({ token, user }) {
       if (user) {

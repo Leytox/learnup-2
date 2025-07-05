@@ -17,6 +17,7 @@ import SearchButton from "@/components/search";
 
 export default async function Header() {
   const session = await auth();
+  console.log(session);
   return (
     <header
       className={
