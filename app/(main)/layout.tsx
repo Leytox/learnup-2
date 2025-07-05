@@ -11,7 +11,7 @@ export default function MainLayout({
   return (
     <ThemeProvider attribute={"class"} defaultTheme={"dark"} enableSystem>
       <Header />
-      <div className="mt-20 min-h-screen">{children}</div>
+      <main className="mt-20 min-h-screen container mx-auto">{children}</main>
       <Toaster />
     </ThemeProvider>
   );

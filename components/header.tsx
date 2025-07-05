@@ -9,6 +9,7 @@ import {
   ShoppingCartIcon,
   User2Icon,
   ShieldUser,
+  Presentation,
 } from "lucide-react";
 import LoginLink from "@/components/login-link";
 import Logo from "@/components/logo";
@@ -17,7 +18,6 @@ import SearchButton from "@/components/search";
 
 export default async function Header() {
   const session = await auth();
-  console.log(session);
   return (
     <header
       className={
@@ -43,11 +43,7 @@ export default async function Header() {
             {session && (
               <>
                 <li>
-                  <Link href={"/profile"}>
-                    <Button size={"icon"} variant={"ghost"} title={"Profile"}>
-                      <User2Icon />
-                    </Button>
-                  </Link>
+                  <ThemeSwitcher />
                 </li>
                 <li>
                   <Link href={"/learning"}>
@@ -67,30 +63,51 @@ export default async function Header() {
                     </Button>
                   </Link>
                 </li>
+                <li>
+                  <Link href={"/profile"}>
+                    <Button size={"icon"} variant={"ghost"} title={"Profile"}>
+                      <User2Icon />
+                    </Button>
+                  </Link>
+                </li>
+                {session.user.role === Role.ADMIN && (
+                  <li>
+                    <Link href={"/admin"}>
+                      <Button
+                        size={"icon"}
+                        variant={"ghost"}
+                        title={"Admin Dashboard"}
+                      >
+                        <ShieldUser />
+                      </Button>
+                    </Link>
+                  </li>
+                )}
+                {session.user.role === Role.INSTRUCTOR && (
+                  <li>
+                    <Link href={"/instructor"}>
+                      <Button
+                        size={"icon"}
+                        variant={"ghost"}
+                        title={"Instructor Dashboard"}
+                      >
+                        <Presentation />
+                      </Button>
+                    </Link>
+                  </li>
+                )}
+                <li>
+                  <Link href={"/logout"}>
+                    <Button
+                      size={"icon"}
+                      variant={"destructive"}
+                      title={"Sign Out"}
+                    >
+                      <LogOutIcon />
+                    </Button>
+                  </Link>
+                </li>
               </>
-            )}
-            {session && (
-              <li>
-                <Link href={"/logout"}>
-                  <Button size={"icon"} variant={"ghost"} title={"Sign Out"}>
-                    <LogOutIcon />
-                  </Button>
-                </Link>
-              </li>
-            )}
-            {session && (
-              <li>
-                <ThemeSwitcher />
-              </li>
-            )}
-            {session?.user.role === Role.ADMIN && (
-              <li>
-                <Link href={"/admin"}>
-                  <Button size={"icon"} variant={"ghost"} title={"Admin"}>
-                    <ShieldUser />
-                  </Button>
-                </Link>
-              </li>
             )}
           </ul>
         </nav>

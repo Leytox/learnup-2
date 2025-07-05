@@ -4,7 +4,7 @@ import { ArrowLeft } from "lucide-react";
 
 export default function BlogPostNotFound() {
   return (
-    <main className={" flex flex-col gap-4 items-center justify-center"}>
+    <div className={"flex flex-col gap-4 items-center justify-center"}>
       <h2 className={"text-7xl text-center uppercase"}>
         <span className="text-9xl font-bold">404</span>
         <br /> Not Found
@@ -17,6 +17,6 @@ export default function BlogPostNotFound() {
           <ArrowLeft /> Back to Blog
         </Button>
       </Link>
-    </main>
+    </div>
   );
 }

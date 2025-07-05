@@ -1,6 +1,6 @@
 export default function DashboardPage() {
   return (
-    <main className="container py-12 mx-auto">
+    <div>
       <h1 className="text-4xl font-bold tracking-tight">Your Dashboard</h1>
       <p className="mt-2 text-lg text-muted-foreground">
         Welcome back! Here you can find your courses, progress, and more.
@@ -37,6 +37,6 @@ export default function DashboardPage() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

@@ -1,6 +1,6 @@
 export default function PrivacyPage() {
   return (
-    <main className=" flex justify-center">
+    <div className="flex justify-center">
       <div className="container">
         <h1 className="text-4xl font-bold mb-8 text-center">Privacy Policy</h1>
         <div className="prose prose-slate dark:prose-invert max-w-none">
@@ -17,10 +17,8 @@ export default function PrivacyPage() {
           <p>
             We do not sell or rent your personal information to third parties...
           </p>
-
-          {/* Add more sections as needed */}
         </div>
       </div>
-    </main>
+    </div>
   );
 }

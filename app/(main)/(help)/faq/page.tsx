@@ -21,20 +21,18 @@ const faqs = [
 
 export default function FAQPage() {
   return (
-    <main className=" flex justify-center">
-      <div className="container">
-        <h1 className="text-4xl font-bold mb-8 text-center">
-          Frequently Asked Questions
-        </h1>
-        <Accordion type="single" collapsible className="w-full">
-          {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger>{faq.question}</AccordionTrigger>
-              <AccordionContent>{faq.answer}</AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </div>
-    </main>
+    <div className="flex justify-center">
+      <h1 className="text-4xl font-bold mb-8 text-center">
+        Frequently Asked Questions
+      </h1>
+      <Accordion type="single" collapsible className="w-full">
+        {faqs.map((faq, index) => (
+          <AccordionItem key={index} value={`item-${index}`}>
+            <AccordionTrigger>{faq.question}</AccordionTrigger>
+            <AccordionContent>{faq.answer}</AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </div>
   );
 }
