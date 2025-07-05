@@ -56,6 +56,16 @@
     --animate-marquee-left: marquee-left 10s linear infinite;
     --animate-marquee-right: marquee-right 10s linear infinite;
     --animate-infinite-scroll: marquee-right 15s linear infinite;
+    --animate-blur: blur 0.5s ease-in-out forwards;
+
+    @keyframes blur {
+        from {
+            backdrop-filter: none;
+        }
+        to {
+            backdrop-filter: blur(100px);
+        }
+    }
 
     @keyframes marquee-left {
         from {
