@@ -1,3 +1,3 @@
-export default function Courses() {
-  return <main className="min-h-screen"></main>;
+export default function CoursesPage() {
+  return <main className="">CoursesPage</main>;
 }

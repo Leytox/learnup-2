@@ -14,7 +14,7 @@ export default async function BlogDetailPage({
   if (!blogPost) notFound();
 
   return (
-    <main className="min-h-screen flex justify-center">
+    <main className=" flex justify-center">
       <div className="container">
         <article className="max-sm:px-2">
           <h1 className="text-4xl font-bold mb-4">{blogPost.title}</h1>

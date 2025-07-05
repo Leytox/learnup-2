@@ -1,15 +1,12 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, FrownIcon } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 export default function BlogPostNotFound() {
   return (
-    <main
-      className={"min-h-screen flex flex-col gap-4 items-center justify-center"}
-    >
-      <FrownIcon className={"w-24 h-24 text-red-400"} />
-      <h2 className={"text-6xl text-center"}>
-        404
+    <main className={" flex flex-col gap-4 items-center justify-center"}>
+      <h2 className={"text-7xl text-center uppercase"}>
+        <span className="text-9xl font-bold">404</span>
         <br /> Not Found
       </h2>
       <p className={"text-lg"}>
@@ -17,7 +14,7 @@ export default function BlogPostNotFound() {
       </p>
       <Link href="/blog">
         <Button>
-          <ArrowLeft /> Browse All Blog Posts
+          <ArrowLeft /> Back to Blog
         </Button>
       </Link>
     </main>

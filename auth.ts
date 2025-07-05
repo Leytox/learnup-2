@@ -8,7 +8,7 @@ import Google from "next-auth/providers/google";
 import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
 import { z } from "zod";
-import { getUserByEmail } from "./lib/user";
+import { getUserByEmail } from "@/actions/user";
 
 export const {
   handlers,
@@ -41,16 +41,17 @@ export const {
         const { email, password } = parsedCredentials.data;
         const user = await getUserByEmail(email);
 
-        if (!user) throw new CredentialsSignin();
+        if (!user) throw new Error("User was not found");
         if (!user.password) throw new Error("User has no password");
-        const passwordsMatch = bcrypt.compare(password, user.password);
+        const passwordsMatch = await bcrypt.compare(password, user.password);
 
-        if (!passwordsMatch) return null;
+        if (!passwordsMatch) throw new Error("Invalid credentials");
 
         return {
           id: user.id,
           email: user.email,
           name: user.name,
+          role: user.role,
         };
       },
     }),

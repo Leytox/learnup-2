@@ -2,17 +2,27 @@ import React from "react";
 import Logo from "@/components/logo";
 import { SiFacebook, SiX, SiGithub } from "@icons-pack/react-simple-icons";
 import Link from "next/link";
+import Squares from "./squares";
 
 function Footer() {
   return (
     <footer
       className={
-        "h-fit w-full flex flex-col items-center justify-center bg-gray-900 text-white"
+        "relative h-fit w-full flex flex-col items-center justify-center bg-gray-900 text-white overflow-hidden"
       }
     >
+      <div className="absolute inset-0 w-full h-full z-0">
+        <Squares
+          direction="diagonal"
+          speed={0.5}
+          borderColor="#333"
+          squareSize={40}
+          hoverFillColor="#444"
+        />
+      </div>
       <div
         className={
-          "flex justify-center items-center max-md:flex-col gap-6 container py-16 w-full"
+          "relative z-10 flex justify-center items-center max-md:flex-col gap-6 container py-16 w-full"
         }
       >
         <div
@@ -84,7 +94,11 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className={"bg-black flex items-center justify-center py-2 w-full"}>
+      <div
+        className={
+          "relative z-10 bg-black flex items-center justify-center py-2 w-full"
+        }
+      >
         &copy; {new Date().getFullYear()} LearnUp. All rights reserved.
       </div>
     </footer>

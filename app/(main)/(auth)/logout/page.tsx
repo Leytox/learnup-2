@@ -2,9 +2,9 @@ import { signOutAll } from "@/actions/auth";
 import { Button } from "@/components/ui/button";
 import { ArrowRightSquareIcon } from "lucide-react";
 
-export default function SignOutPage() {
+export default function LogoutPage() {
   return (
-    <main className="min-h-screen flex items-center justify-center text-center">
+    <main className="flex items-center justify-center text-center">
       <div className="container">
         <div className="flex flex-col gap-4">
           <h1 className="text-3xl">Are you sure you want to sign out?</h1>

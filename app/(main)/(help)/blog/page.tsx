@@ -6,16 +6,15 @@ import Link from "next/link";
 export default async function BlogPage() {
   const blogPosts = await getBlogs();
   return (
-    <main className="min-h-screen flex justify-center">
-      <div className="container">
-        <h1 className="text-4xl font-bold mb-8 text-center">Blog</h1>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {blogPosts.length === 0 ? (
-            <p className="text-center text-muted-foreground">
-              No blog posts found.
-            </p>
-          ) : (
-            blogPosts.map((post, index) => (
+    <main className="size-full">
+      <div className="container mx-auto">
+        {!blogPosts?.length ? (
+          <h1 className="h-[calc(100vh-80px)] w-full text-center text-5xl flex items-center justify-center italic text-muted-foreground">
+            Nothing found here 🫠
+          </h1>
+        ) : (
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {blogPosts?.map((post, index) => (
               <Link href={`/blog/${post.slug}`} key={index}>
                 <Card>
                   <CardHeader>
@@ -38,9 +37,9 @@ export default async function BlogPage() {
                   </CardContent>
                 </Card>
               </Link>
-            ))
-          )}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </main>
   );

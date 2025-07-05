@@ -17,6 +17,7 @@ import {
   FormMessage,
 } from "./ui/form";
 import { ArrowRightIcon, Loader2Icon } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -27,6 +28,7 @@ const formSchema = z.object({
 });
 
 export function CredentialsAuth() {
+  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -37,7 +39,12 @@ export function CredentialsAuth() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      await signInCredentials(values.email, values.password);
+      const result = await signInCredentials(values.email, values.password);
+
+      if (result?.success) {
+        toast.success("Successfully signed in!");
+        router.push("/dashboard");
+      }
     } catch (error) {
       const errorMessage =
         error instanceof Error ? error.message : "An unexpected error occurred";

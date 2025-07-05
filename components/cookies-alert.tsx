@@ -19,7 +19,9 @@ export default function CookieConsent() {
   if (!isVisible) return null;
 
   return (
-    <div className={"fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4"}>
+    <div
+      className={"fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 z-10"}
+    >
       <div
         className={
           "flex items-center justify-between max-sm:justify-center container h-full px-6 lg:px-8"

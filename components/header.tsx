@@ -1,12 +1,19 @@
 import React from "react";
 import { auth } from "@/auth";
 import Link from "next/link";
-import SignOut from "@/components/signOut";
 import ThemeSwitcher from "@/components/theme-switcher";
 import { Button } from "./ui/button";
-import { GraduationCapIcon, ShoppingCartIcon, User2Icon } from "lucide-react";
+import {
+  GraduationCapIcon,
+  LogOutIcon,
+  ShoppingCartIcon,
+  User2Icon,
+  ShieldUser,
+} from "lucide-react";
 import LoginLink from "@/components/login-link";
 import Logo from "@/components/logo";
+import { Role } from "@/generated/prisma";
+import SearchButton from "@/components/search";
 
 export default async function Header() {
   const session = await auth();
@@ -18,14 +25,15 @@ export default async function Header() {
     >
       <div
         className={
-          "flex items-center justify-between max-sm:justify-center container h-full px-6 lg:px-8"
+          "flex items-center justify-between max-sm:justify-center container h-full"
         }
       >
         <Link href={"/"} className={"max-sm:hidden"}>
           <Logo />
         </Link>
         <nav>
-          <ul className={"flex gap-6 items-center"}>
+          <ul className={"flex gap-4 items-center"}>
+            <SearchButton />
             {!session && (
               <li>
                 <LoginLink />
@@ -62,12 +70,27 @@ export default async function Header() {
             )}
             {session && (
               <li>
-                <SignOut />
+                <Link href={"/logout"}>
+                  <Button size={"icon"} variant={"ghost"} title={"Sign Out"}>
+                    <LogOutIcon />
+                  </Button>
+                </Link>
               </li>
             )}
-            <li>
-              <ThemeSwitcher />
-            </li>
+            {session && (
+              <li>
+                <ThemeSwitcher />
+              </li>
+            )}
+            {session?.user.role === Role.ADMIN && (
+              <li>
+                <Link href={"/admin"}>
+                  <Button size={"icon"} variant={"ghost"} title={"Admin"}>
+                    <ShieldUser />
+                  </Button>
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
       </div>

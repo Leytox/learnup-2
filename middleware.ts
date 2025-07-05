@@ -18,8 +18,10 @@ export const { auth } = NextAuth(authConfig);
 export default auth(async function middleware(req) {
   const { nextUrl } = req;
   const isLoggedIn = !!req.auth;
+  if (isLoggedIn && nextUrl.pathname === "/")
+    return NextResponse.redirect(new URL("/dashboard", nextUrl));
   const isProtectedRoute = PROTECTED_ROUTES.some((route) =>
-    nextUrl.pathname.startsWith(route),
+    nextUrl.pathname.startsWith(route)
   );
   const authError = nextUrl.searchParams.get("error");
   if (authError && !nextUrl.pathname.startsWith("/error")) {

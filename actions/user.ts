@@ -1,10 +1,11 @@
-import { prisma } from "./prisma";
+"use server";
+import { prisma } from "@/lib/prisma";
 import bcrypt from "bcrypt";
 
 export async function createUser(
   email: string,
   name: string,
-  password: string,
+  password: string
 ) {
   try {
     const user = await prisma.user.findUnique({
@@ -18,6 +19,8 @@ export async function createUser(
       data: { email, name, password },
     });
   } catch (error) {
+    console.error("Failed to create user:", error);
+    // Re-throw the error so it can be handled by the component
     throw error;
   }
 }
@@ -29,6 +32,6 @@ export async function getUserByEmail(email: string) {
     });
   } catch (error) {
     console.error("Failed to fetch user:", error);
-    return null;
+    throw error;
   }
 }

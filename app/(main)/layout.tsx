@@ -12,7 +12,7 @@ export default function MainLayout({
     <>
       <ThemeProvider attribute={"class"} defaultTheme={"dark"} enableSystem>
         <Header />
-        <div className="mt-20">{children}</div>
+        <div className="mt-20 min-h-screen">{children}</div>
         <Toaster />
       </ThemeProvider>
     </>

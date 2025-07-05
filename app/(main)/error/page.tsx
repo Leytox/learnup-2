@@ -4,12 +4,12 @@ import { AlertTriangleIcon, ArrowLeftIcon } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export default function AuthErrorPage() {
+export default function ErrorPage() {
   const searchParams = useSearchParams();
   const error = searchParams.get("error");
 
   return (
-    <main className="min-h-screen flex items-center justify-center p-4">
+    <main className=" flex items-center justify-center p-4">
       <div className="container max-w-md rounded-lg shadow-lg p-8">
         {error === "OAuthAccountNotLinked" ? (
           <div className="text-center space-y-4">
